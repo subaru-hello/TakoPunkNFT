@@ -15,7 +15,17 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint:es": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint:es:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint:style": "stylelint 'src/**/*.{css,less,sass,scss}'",
+    "lint:style:fix": "stylelint --fix 'src/**/*.{css,less,sass,scss}'",
+    "lint": "npm run --silent lint:style; npm run --silent lint:es",
+    "lint:fix": "npm run --silent lint:style:fix; npm run --silent lint:es:fix",
+    "fmt": "prettier --write --loglevel=warn 'src/**/*.{js,jsx,ts,tsx,html,json,gql,graphql,sol}'",
+    "fix": "yarn run --silent fmt; npm run --silent lint:fix",
+    "preinstall": "npx typesync || :",
+    "prepare": "npx simple-git-hooks || :"
   },
   "eslintConfig": {
     "extends": [
@@ -36,6 +46,34 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^8.25.0"
+    "@ethersproject/abi": "^5.4.7",
+    "@ethersproject/providers": "^5.4.7",
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "@nomiclabs/hardhat-ethers": "^2.0.0",
+    "@nomiclabs/hardhat-etherscan": "^3.0.0",
+    "@typechain/ethers-v5": "^10.1.0",
+    "@typechain/hardhat": "^6.1.2",
+    "@types/eslint": "^8.4.6",
+    "@types/prettier": "^2.7.1",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "@types/testing-library__jest-dom": "^5.14.5",
+    "@types/testing-library__user-event": "^4.2.0",
+    "chai": "^4.2.0",
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "ethers": "^5.4.7",
+    "hardhat": "^2.11.1",
+    "hardhat-gas-reporter": "^1.0.8",
+    "prettier": "^2.7.1",
+    "solidity-coverage": "^0.8.0",
+    "typechain": "^8.1.0"
   }
 }
