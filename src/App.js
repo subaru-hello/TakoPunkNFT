@@ -1,8 +1,18 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import MainMint from './MainMint';
+import NavBar from '';
 
 function App() {
-  return <div className="App"></div>;
+  // setter and getter of wallet account
+  const [accounts, setAccounts] = useState([]);
+
+  return (
+    <div className="App">
+      <NavBar accounts={accounts} setAccounts={setAccounts} />
+      <MainMint accounts={accounts} setAccounts={setAccounts} />>
+    </div>
+  );
 }
 
 export default App;
