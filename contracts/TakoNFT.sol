@@ -1,13 +1,14 @@
 // SPDX-License-Indentifier: UNLICENSED
 
 // スマートコントラクト用のフォルダ
-pragma solidty ^0.8.4;
+pragma solidity ^0.8.17;
 
-import '@openzeppelin/contracts/token/ERC721/ERC721.sol';
-import '@openzeppelin/contracts/access/Ownable.sol';
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 // TokoNFTクラスを作成
-contract TakoNFT is ERC721, Ownable {
+
+  contract TakoNFT is ERC721, Ownable {
     uint256 public mintPrice;
     uint256 public totalSupply;
     uint256 public maxSupply;
@@ -37,13 +38,13 @@ contract TakoNFT is ERC721, Ownable {
 
 
     function tokenURI(uint256 tokenId_) public view override returns (string memory) {
-        require(_exists(tokenId_), 'Token does not exist!);
+        require(_exists(tokenId_), 'Token does not exist!');
         return string(abi.encodePacked(baseTokenUri, Strings.toString(tokenId_), ".json"));
     }
 
     function withdeaw() external onlyOwner {
          (bool success, ) = withdrawWallet.call{ value: address(this).balance }('');
-         requireuire(success, 'withdraw failed');
+         require(success, 'withdraw failed');
      }
 
      function mint(uint256 quantity_) public payable {
