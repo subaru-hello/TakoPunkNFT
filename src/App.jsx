@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import MainMint from './MainMint';
-import NavBar from '';
+import NavBar from './NavBar';
 
 function App() {
   // setter and getter of wallet account
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <NavBar accounts={accounts} setAccounts={setAccounts} />
-      <MainMint accounts={accounts} setAccounts={setAccounts} />>
+      <MainMint accounts={accounts} setAccounts={setAccounts} />
     </div>
   );
 }
