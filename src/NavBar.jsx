@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const NavBar = async ({ accounts, setAccounts }) => {
-  const isConnected = Boolean(accounts[0]);
+function NavBar() {
+  const [accounts, setAccounts] = useState('');
+  const isConnected = Boolean(accounts);
 
   const connectedAccount = async () => {
     if (window.ethereum) {
@@ -34,6 +35,6 @@ const NavBar = async ({ accounts, setAccounts }) => {
       )}
     </div>
   );
-};
+}
 
 export default NavBar;

@@ -6,7 +6,8 @@ import takoSeptNFT from './TakoSpetNFT.json';
 
 const takoSeptNFTAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 
-const MainMint = async ({ accounts }) => {
+function MainMint() {
+  const [accounts] = useState('');
   const [mintAmount, setMintAmount] = useState(1);
   const isConnected = Boolean(accounts[0]);
 
@@ -64,6 +65,6 @@ const MainMint = async ({ accounts }) => {
       )}
     </div>
   );
-};
+}
 
 export default MainMint;
